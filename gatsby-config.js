@@ -9,7 +9,7 @@ module.exports = {
   siteMetadata: {
     title: 'headless',
     description: 'the shopify + gatsby starter theme for digital commerce',
-    siteUrl: 'https://headless.us',
+    siteUrl: 'https://github.com/ecomloop/headless-starter',
   },
   plugins: [
     'gatsby-transformer-yaml',

@@ -1,7 +1,7 @@
-siteTitle: headless.us
-siteUrl: 'https://github.com/ecomloop/headless'
+siteTitle: headless starter theme
+siteUrl: 'https://github.com/ecomloop/headless-starter'
 siteDescription: >-
   the shopify + gatsby starter theme for digital commerce
 socialMediaCard:
   image: '/images/logo.png'
-googleTrackingId: UA-86276502-1
+googleTrackingId: UA-86276502-3
