@@ -1,0 +1,27 @@
+div.Cart--table {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 10px;
+  padding-bottom: 20px;
+}
+
+div.Cart--row { 
+    display:table-row; 
+    border-bottom: 1px solid black;
+}
+
+div.Cart--cell {
+  width: 20%;
+  display: table-cell;
+  padding: 10px;
+  vertical-align: text-top;
+}
+
+span.Cart--Thumbnail {
+    vertical-align: middle;
+}
+
+button.Cart--Checkout {
+    float: right;
+    margin: 10px;
+}

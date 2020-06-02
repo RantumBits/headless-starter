@@ -1,0 +1,22 @@
+div.table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 10px;
+  padding-bottom: 20px;
+}
+
+div.row { display:table-row; }
+
+div.cell {
+  width: 100px;
+  height: 100px;
+  display: table-cell;
+  margin: 10px;
+  vertical-align: text-top;
+}
+
+span.Thumbnail {
+    height: 100px !important;
+    display: inline-block;
+    cursor: pointer;
+}

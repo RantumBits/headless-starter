@@ -1,0 +1,412 @@
+# See https://github.com/netlify/netlify-cms/blob/master/example/config.yml
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+# display_url: https://gatsbro.netlify.com # This url will display in the top-right of the CMS
+media_library:
+  name: uploadcare
+  config:
+    publicKey: a73a170cb5cdef662983
+    multiple: false
+    tabs: 'file camera url facebook gdrive'
+    effects: 'crop,rotate,enhance,grayscale'
+    imageShrink: '2000x2000'
+    previewStep: true
+    clearable: true
+
+collections: # A list of collections the CMS should be able to edit
+  - name: 'pages'
+    label: 'Page'
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: true
+    files:
+      - file: 'content/pages/contact.md'
+        label: 'Contact Page'
+        name: 'contact-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: ContactPage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'contact' }
+          - { label: Title, name: title, widget: string }
+          - {
+              label: Featured Image,
+              name: featuredImage,
+              widget: image,
+              options:
+                { media_library: { config: { imageShrink: 2600x2600 } } },
+            }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Body, name: body, widget: markdown }
+          - { label: Address, name: address, widget: text }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Email Address, name: email, widget: string }
+          - name: locations
+            label: locations
+            widget: list
+            fields:
+              - {
+                  name: mapLink,
+                  label: mapLink,
+                  widget: string,
+                  required: false,
+                  default: '',
+                }
+              - {
+                  name: lat,
+                  label: latitude,
+                  widget: string,
+                  required: false,
+                  delete: false,
+                  default: '',
+                }
+              - {
+                  name: lng,
+                  label: longitude,
+                  widget: string,
+                  required: false,
+                  delete: false,
+                  default: '',
+                }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+
+      - file: 'content/pages/blog.md'
+        label: 'Blog Page'
+        name: 'blog-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: BlogIndex,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'blog' }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Image, name: featuredImage, widget: image }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+
+      - file: 'content/pages/components.md'
+        label: 'Components Page'
+        name: 'components-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: ComponentsPage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'components' }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Images, name: featuredImage, widget: image }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Section 1, name: section1, widget: markdown }
+          - { label: Section 2, name: section2, widget: markdown }
+          - { name: video, label: video, widget: file }
+          - { name: videoPoster, label: videoPoster, widget: image }
+          - { label: videoTitle, name: videoTitle, widget: string }
+          - label: 'accordion'
+            name: 'accordion'
+            widget: 'list'
+            fields:
+              - { name: title, label: title, widget: string, default: '' }
+              - { name: description, label: description, widget: string }
+          - label: 'Gallery'
+            name: 'gallery'
+            widget: 'list'
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+
+      - file: 'content/pages/home.md'
+        label: 'Home Page'
+        name: 'home-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: HomePage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: '' }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Image, name: featuredImage, widget: image }
+          - { label: Subtitle, name: subtitle, widget: markdown, required: false }
+          - { label: Body, name: body, widget: markdown }
+          - label: 'Accordion'
+            name: 'accordion'
+            widget: 'list'
+            required: false
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: Content, name: content, widget: text }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+
+  - name: infoPages
+    label: Info Page
+    editor:
+      preview: true
+    folder: content/infoPages
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields:
+      - {
+          label: Template,
+          name: template,
+          widget: hidden,
+          default: DefaultPage,
+        }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Featured Image, name: featuredImage, widget: image }
+      - { label: Body, name: body, widget: markdown }
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }
+
+  - name: posts
+    label: Post
+    editor:
+      preview: true
+    folder: content/posts
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: SinglePost }
+      - { label: Title, name: title, widget: string }
+      - label: 'Status'
+        name: 'status'
+        widget: 'select'
+        options: ['Published', 'Featured', 'Draft']
+        default: 'Draft'
+      - label: 'Date'
+        name: 'date'
+        widget: 'datetime'
+        dateFormat: 'YYYY-MM-DD'
+        timeFormat: 'HH:mm'
+        format: 'YYYY-MM-DD HH:mm'
+      - label: 'Tags'
+        name: 'tags'
+        widget: "list"
+        default: ["ecomloop"]
+        required: false
+      - {
+          label: Featured Image,
+          name: featuredImage,
+          widget: image,
+          required: false,
+        }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Content, name: body, widget: markdown }
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'list'
+        required: false
+        fields:
+          - label: 'Category'
+            name: 'category'
+            widget: 'relation'
+            collection: 'postCategories'
+            searchFields: ['title']
+            valueField: 'title'
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }
+
+  - name: postCategories
+    label: Post Category
+    editor:
+      preview: false
+    folder: content/postCategories
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: BlogIndex }
+      - { label: Title, name: title, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }
+      - {
+          label: Featured Image,
+          name: featuredImage,
+          widget: image,
+          required: false,
+        }
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }
+
+  - name: 'settings'
+    label: 'Settings'
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - file: 'content/settings/global.yml'
+        label: 'Global Settings'
+        name: 'global-settings'
+        fields:
+          - { label: Site Title, name: siteTitle, widget: string }
+          - { label: Site Url, name: siteUrl, widget: string, required: false }
+          - {
+              label: Site Description,
+              name: siteDescription,
+              widget: text,
+              required: false,
+            }
+          - label: Social Media Card
+            name: socialMediaCard
+            widget: object
+            fields:
+              - { label: Image, name: image, widget: image, required: false }
+          - {
+              label: Google Analytics Tracking Id,
+              name: googleTrackingId,
+              widget: string,
+              required: false,
+            }

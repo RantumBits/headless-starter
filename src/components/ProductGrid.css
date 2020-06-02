@@ -1,0 +1,29 @@
+div.Grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+div.Product {
+    display: flex;
+    min-height: 100%;
+    margin: 2em;
+    flex-direction: column;
+}
+
+span.Title {
+    text-align: center;
+}
+span.PriceTag {
+    text-align: center;
+    margin-top: 15px;    
+}
+span.PriceTag:before {
+    content: '- '
+}
+
+@media screen and (max-width: 888px) {
+    div.Grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

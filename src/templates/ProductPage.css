@@ -1,0 +1,83 @@
+.SingleService {
+  background: var(--lightGrey);
+}
+
+.SingleService .gatsby-image-wrapper {
+    margin: 1em 1em 1em 1em;
+}
+
+.SingleService--BackButton {
+  color: black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.SingleService--BackButton svg {
+  transition: transform 0.2s ease-out;
+  transform: translateX(0);
+  height: 1.2em;
+}
+
+.SingleService--BackButton:hover svg,
+.SingleService--BackButton:focus svg {
+  transform: translateX(-0.25em);
+}
+
+.SingleService--Content {
+  background: white;
+  padding: 8rem 8rem 4rem 8rem;
+}
+
+@media screen and (max-width: 750px) {
+  .SingleService--Content {
+    padding: 4rem 2rem;
+  }
+}
+
+.SingleService--Meta {
+  font-size: 1rem;
+  margin: 0 0 2rem 0;
+  text-align: center;
+}
+
+.SingleService--Meta > * + * {
+  margin-left: 0.75em;
+}
+
+.SingleService--Title {
+  text-align: left;
+  line-height: 1.2;
+  font-family: 'Inconsolata', monospace;
+}
+
+.SingleService--InnerContent {
+  padding: 0 8rem;
+}
+
+@media screen and (max-width: 750px) {
+  .SingleService--InnerContent {
+    padding: 0;
+  }
+}
+
+.SingleService--Pagination {
+  margin: 4rem 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.SingleService--Pagination--Link {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.SingleService--Pagination--Link.next {
+  margin-left: auto;
+}
