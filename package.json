@@ -39,7 +39,7 @@
     "gatsby-source-google-docs": "^2.0.0-beta.30",
     "gatsby-source-google-sheets": "^1.1.1",
     "gatsby-source-shopify": "^3.2.39",
-    "gatsby-transformer-remark": "^2.8.47",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.20",
     "gatsby-transformer-yaml": "^2.4.15",
     "google-map-react": "^2.1.8",
